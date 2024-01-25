@@ -1,5 +1,4 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
 import { onBeforeMount } from 'vue'
 // import { FwbDropdown, FwbListGroup, FwbListGroupItem } from 'flowbite-vue'
 
@@ -27,6 +26,5 @@ onBeforeMount(() => {
 
 <template>
   <main>
-    <TheWelcome />
   </main>
 </template>

@@ -1,5 +1,8 @@
 <template>
-  ABout
+  <div class="h-[400vh] bg-primary-light">
+
+    Projects
+  </div>
 </template>
 
 <style>

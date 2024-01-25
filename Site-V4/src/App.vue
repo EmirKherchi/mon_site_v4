@@ -4,19 +4,32 @@ import NavHeader from './components/NavHeader.vue'
 </script>
 
 <template>
+  <span class="
+    hidden 
+    bg-primary 
+    bg-secondary 
+    bg-primary-light 
+    bg-secondary-light 
+    bg-accent 
+    bg-accent-light
+    hover:bg-primary 
+    hover:bg-secondary 
+    hover:bg-primary-light 
+    hover:bg-secondary-light 
+    hover:bg-accent 
+    hover:bg-accent-light" />
+
   <header>
-    <NavHeader/>
+    <NavHeader />
     <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
-
-    <div class="wrapper">
-    </div>
   </header>
-
-  <RouterView />
+  <section class="container mx-auto  px-2 sm:px-0 py-2.5">
+    <RouterView />
+  </section>
 </template>
 
 <style scoped>
-header {
+/* header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -76,5 +89,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>
