@@ -6,12 +6,17 @@ const props = defineProps({
   color: {
     type: String,
     default: "secondary"
+  },
+  size: {
+    type: String,
+    default: "md"
   }
 });
 </script>
 
 <template>
-  <fwb-button :class="`bg-${props.color} hover:bg-${props.color}-light text-white transition-all duration-300`">
+  <fwb-button :size="props.size"
+    :class="`bg-${props.color} hover:bg-${props.color}-light text-white transition-all duration-300`">
     <slot></slot>
   </fwb-button>
 </template>

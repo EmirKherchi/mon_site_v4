@@ -17,7 +17,11 @@ import NavHeader from './components/NavHeader.vue'
     hover:bg-primary-light 
     hover:bg-secondary-light 
     hover:bg-accent 
-    hover:bg-accent-light" />
+    hover:bg-accent-light
+      text-primary
+      text-secondary
+      text-accent
+    " />
 
   <header>
     <NavHeader />

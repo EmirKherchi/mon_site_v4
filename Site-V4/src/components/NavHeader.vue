@@ -5,7 +5,6 @@ import Buttons from './Buttons/Buttons.vue'
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const route = useRoute();
-
 const isFixed = ref(false);
 
 // Fonction pour détecter le défilement de la page
@@ -40,7 +39,7 @@ onUnmounted(() => {
             Accueil
           </span>
         </fwb-navbar-link>
-        <fwb-navbar-link link="/about">
+        <fwb-navbar-link class="hover:text-primary duration-300 font-semibold text-lg" link="/about">
           <span class="hover:text-primary duration-300 font-semibold text-lg"
             :class="route.path === '/about' ? 'text-primary' : ''">
             A propos
