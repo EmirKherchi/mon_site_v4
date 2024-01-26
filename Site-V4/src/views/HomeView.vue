@@ -3,8 +3,6 @@ import { ref, onMounted, onBeforeMount } from 'vue'
 import ProjectDetail from '../components/ProjectDetail.vue'
 import Buttons from '../components/Buttons/Buttons.vue'
 
-
-
 const API_URL = `http://admin.ekherchi.fr/wp-json/wp/v2/projects?acf_format=standard&_fields=acf`
 let projects = null;
 
@@ -19,17 +17,23 @@ const getData = () => {
     console.log('Looks like there was a problem: \n', error);
   });
 }
-const colors = ['primary', 'secondary', 'accent', 'black']; // Couleurs disponibles
-const colorTitle = ref('primary'); // Couleur actuelle
-// Change la couleur toutes les 8 secondes
-const changeTitleColor = () => {
+
+const colors = ['primary', 'secondary', 'accent', 'yellow-400', 'black'];
+const skills = ['Vue.Js', 'React.Js', 'Wordpress', 'Javascript', 'Front-End'];
+const colorTitle = ref('black');
+const skillsTitle = ref('Front-End');
+
+const titleAnimations = () => {
   setInterval(() => {
-    const currentIndex = colors.indexOf(colorTitle.value);
-    colorTitle.value = colors[(currentIndex + 1) % colors.length];
+    const currentIndexColors = colors.indexOf(colorTitle.value);
+    const currentIndexSkills = skills.indexOf(skillsTitle.value);
+    colorTitle.value = colors[(currentIndexColors + 1) % colors.length];
+    skillsTitle.value = skills[(currentIndexSkills + 1) % skills.length];
   }, 2000);
 }
+
 onMounted(() => {
-  changeTitleColor();
+  titleAnimations();
 });
 
 onBeforeMount(() => {
@@ -40,12 +44,13 @@ onBeforeMount(() => {
 
 <template>
   <div class="relative bg-gray-50 rounded-lg">
-    <div class="animated-shape"></div>
+    <div class="animated-shape" :class="`bg-${colorTitle}`"></div>
     <div class="flex flex-col items-center justify-center h-[80vh] gap-16 relative z-10">
-      <h1 class="font-black text-5xl px-4 lg:px-0 lg:w-[60%] xl:w-[30%] text-center leading-relaxed">
-        Emir <br>
+      <h1 class="font-black text-5xl px-4 lg:px-0 leading-relaxed text-center">
+        Developpeur web
+        <br>
         <span class="font-black text-5xl" :class="`text-${colorTitle} transition-all duration-700`">
-          Développeur Web Front-End ici liste de mes capacités
+          {{ skillsTitle }}
         </span>
       </h1>
       <p class="text-center px-4 lg:px-0 lg:w-[60%] xl:w-[40%]">
@@ -65,15 +70,16 @@ onBeforeMount(() => {
 <style>
 .animated-shape {
   z-index: 1;
-  width: 300px;
-  height: 300px;
-  background-color: theme('colors.primary-light');
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 250px;
+  max-height: 300px;
   /* Carré */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: shapeAnimation 8s ease-in-out infinite;
+  animation: shapeAnimation 5s ease-in-out infinite;
 }
 
 @keyframes shapeAnimation {
@@ -91,21 +97,18 @@ onBeforeMount(() => {
 
   50% {
     clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-    /* Octogone */
     opacity: .3;
     transform: translate(-50%, -50%) rotate(180deg) scale(1.4);
   }
 
   75% {
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-    /* Décagone */
     opacity: .2;
     transform: translate(-50%, -50%) rotate(270deg) scale(1.6);
   }
 
   100% {
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-    /* Décagone */
     opacity: .0;
     transform: translate(-50%, -50%) rotate(360deg) scale(1);
   }
