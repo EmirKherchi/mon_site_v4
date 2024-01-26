@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeMount } from 'vue'
-import ProjectDetail from '../components/ProjectDetail.vue'
+import PresentationHome from '../components/PresentationHome.vue'
 import Buttons from '../components/Buttons/Buttons.vue'
 
 const API_URL = `http://admin.ekherchi.fr/wp-json/wp/v2/projects?acf_format=standard&_fields=acf`
@@ -18,8 +18,8 @@ const getData = () => {
   });
 }
 
-const colors = ['primary', 'secondary', 'accent', 'yellow-400', 'black'];
-const skills = ['Vue.Js', 'React.Js', 'Wordpress', 'Javascript', 'Front-End'];
+const colors = ['primary', 'secondary', 'accent', 'yellow-400', 'black', 'primary-light', 'secondary-light', 'accent-light'];
+const skills = ['Vue.Js', 'React.Js', 'Wordpress', 'Javascript', 'Front-End', 'Site Vitrine', 'E-Commerce', 'Application Web'];
 const colorTitle = ref('black');
 const skillsTitle = ref('Front-End');
 
@@ -43,7 +43,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="relative bg-zinc-50 rounded-lg overflow-hidden">
+  <div class="relative bg-zinc-50 rounded-lg overflow-hidden mt-20">
     <div class="animated-shape" :class="`bg-${colorTitle}`"></div>
     <div class="flex flex-col items-center justify-center h-[80vh] gap-16 relative z-10">
       <h1 class="font-black text-5xl px-4 lg:px-0 leading-relaxed text-center tracking-wide">
@@ -60,12 +60,17 @@ onBeforeMount(() => {
         fugiat, hic illum ullam
         nesciunt voluptatibus totam a adipisci non dolorem quae molestiae quibusdam, perspiciatis, facere rerum impedit?
       </p>
-      <Buttons color="accent" size="xl" class="">
-        En savoir plus
-      </Buttons>
+      <router-link :to="{ path: '/', hash: '#about' }">
+        <Buttons color="accent" size="xl" class="">
+          En savoir plus
+        </Buttons>
+      </router-link>
     </div>
   </div>
-  <ProjectDetail></ProjectDetail>
+  <div id="about">
+    <PresentationHome title="Bim Ba Da Boom"></PresentationHome>
+  </div>
+  <div class="bg-accent/15 h-[1000px]"></div>
 </template>
 
 

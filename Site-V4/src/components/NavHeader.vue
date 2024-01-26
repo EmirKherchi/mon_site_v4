@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import Buttons from './Buttons/Buttons.vue'
 import { ref, onMounted, onUnmounted } from 'vue';
 
+
 const route = useRoute();
 const isFixed = ref(false);
 
@@ -25,7 +26,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <fwb-navbar :class="{ 'shadow fixed': isFixed }" class="transition-all duration-300 top-0 inset-x-0">
+  <fwb-navbar :class="{ 'shadow ': isFixed }" class="transition-all duration-300 top-0 inset-x-0 z-50 fixed">
     <template #logo>
       <span class="arvo text-xl tracking-wide">
         EMIR K.
@@ -40,12 +41,14 @@ onUnmounted(() => {
             Accueil
           </span>
         </fwb-navbar-link>
-        <fwb-navbar-link link="/about">
-          <span
-            class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
-            :class="route.path === '/about' ? 'text-primary' : ''">
-            A propos
-          </span>
+        <fwb-navbar-link>
+          <router-link :to="{ path: '/', hash: '#about' }">
+            <span
+              class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
+              :class="route.path === '/about' ? 'text-primary' : ''">
+              A propos
+            </span>
+          </router-link>
         </fwb-navbar-link>
         <fwb-navbar-link link="/projects">
           <span
