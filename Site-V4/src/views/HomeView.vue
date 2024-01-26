@@ -43,7 +43,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="relative bg-gray-50 rounded-lg">
+  <div class="relative bg-zinc-50 rounded-lg overflow-hidden">
     <div class="animated-shape" :class="`bg-${colorTitle}`"></div>
     <div class="flex flex-col items-center justify-center h-[80vh] gap-16 relative z-10">
       <h1 class="font-black text-5xl px-4 lg:px-0 leading-relaxed text-center tracking-wide">
@@ -76,7 +76,6 @@ onBeforeMount(() => {
   max-width: 300px;
   min-height: 250px;
   max-height: 300px;
-  /* Carré */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -88,31 +87,31 @@ onBeforeMount(() => {
   0% {
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
     opacity: .0;
-    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    transform: translate(-50%, -50%) rotate(0deg) scale(0);
   }
 
   25% {
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
     opacity: .1;
-    transform: translate(-50%, -50%) rotate(90deg) scale(1.2);
+    transform: translate(-50%, -50%) rotate(90deg) scale(2.5);
   }
 
   50% {
     clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-    opacity: .3;
-    transform: translate(-50%, -50%) rotate(180deg) scale(1.4);
+    opacity: .2;
+    transform: translate(-50%, -50%) rotate(180deg) scale(3);
   }
 
   75% {
     clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%, 75% 100%, 25% 100%, 0% 75%, 0% 25%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-    opacity: .2;
-    transform: translate(-50%, -50%) rotate(270deg) scale(1.6);
+    opacity: .1;
+    transform: translate(-50%, -50%) rotate(270deg) scale(2.5);
   }
 
   100% {
     clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%, 75% 100%, 25% 100%, 0% 75%, 0% 25%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
     opacity: .0;
-    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    transform: translate(-50%, -50%) rotate(360deg) scale(0);
   }
 }
 </style>
