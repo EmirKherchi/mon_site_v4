@@ -46,10 +46,12 @@ onBeforeMount(() => {
   <div class="relative bg-gray-50 rounded-lg">
     <div class="animated-shape" :class="`bg-${colorTitle}`"></div>
     <div class="flex flex-col items-center justify-center h-[80vh] gap-16 relative z-10">
-      <h1 class="font-black text-5xl px-4 lg:px-0 leading-relaxed text-center">
-        Developpeur web
+      <h1 class="font-black text-5xl px-4 lg:px-0 leading-relaxed text-center tracking-wide">
+        Developpeur Web
         <br>
-        <span class="font-black text-5xl" :class="`text-${colorTitle} transition-all duration-700`">
+        Freelance
+        <br>
+        <span class="font-black text-5xl tracking-wide" :class="`text-${colorTitle} transition-all duration-700`">
           {{ skillsTitle }}
         </span>
       </h1>

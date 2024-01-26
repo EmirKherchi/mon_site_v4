@@ -27,26 +27,29 @@ onUnmounted(() => {
 <template>
   <fwb-navbar :class="{ 'shadow fixed': isFixed }" class="transition-all duration-300 top-0 inset-x-0">
     <template #logo>
-      <span class=" arvo text-xl">
+      <span class="arvo text-xl tracking-wide">
         EMIR K
       </span>
     </template>
     <template #default="{ isShowMenu }">
-      <fwb-navbar-collapse :is-show-menu="isShowMenu" class="uppercase mt-2">
+      <fwb-navbar-collapse :is-show-menu="isShowMenu" class="Capitalize mt-2">
         <fwb-navbar-link link="/">
-          <span class="hover:text-primary duration-300 font-semibold text-lg"
+          <span
+            class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
             :class="route.path === '/' ? 'text-primary' : ''">
             Accueil
           </span>
         </fwb-navbar-link>
-        <fwb-navbar-link class="hover:text-primary duration-300 font-semibold text-lg" link="/about">
-          <span class="hover:text-primary duration-300 font-semibold text-lg"
+        <fwb-navbar-link link="/about">
+          <span
+            class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
             :class="route.path === '/about' ? 'text-primary' : ''">
             A propos
           </span>
         </fwb-navbar-link>
         <fwb-navbar-link link="/projects">
-          <span class="hover:text-primary duration-300 font-semibold text-lg"
+          <span
+            class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
             :class="route.path === '/projects' ? 'text-primary' : ''">
             Projets
           </span>
@@ -54,7 +57,7 @@ onUnmounted(() => {
       </fwb-navbar-collapse>
     </template>
     <template #right-side>
-      <Buttons color="primary">
+      <Buttons color="primary" size="sm">
         Contact
       </Buttons>
     </template>
