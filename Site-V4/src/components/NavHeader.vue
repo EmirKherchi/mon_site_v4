@@ -28,7 +28,7 @@ onUnmounted(() => {
   <fwb-navbar :class="{ 'shadow fixed': isFixed }" class="transition-all duration-300 top-0 inset-x-0">
     <template #logo>
       <span class="arvo text-xl tracking-wide">
-        EMIR K
+        EMIR K.
       </span>
     </template>
     <template #default="{ isShowMenu }">
