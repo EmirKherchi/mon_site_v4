@@ -91,8 +91,8 @@ onBeforeMount(() => {
 @keyframes shapeAnimation {
   0% {
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-    opacity: .0;
-    transform: translate(-50%, -50%) rotate(0deg) scale(0);
+    opacity: .1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(.2);
   }
 
   25% {
@@ -115,8 +115,8 @@ onBeforeMount(() => {
 
   100% {
     clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%, 75% 100%, 25% 100%, 0% 75%, 0% 25%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-    opacity: .0;
-    transform: translate(-50%, -50%) rotate(360deg) scale(0);
+    opacity: .1;
+    transform: translate(-50%, -50%) rotate(360deg) scale(.2);
   }
 }
 </style>
