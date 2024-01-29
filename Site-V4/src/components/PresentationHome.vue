@@ -14,24 +14,24 @@ const props = defineProps({
 
 <template>
   <div
-    class="flex flex-col-reverse lg:flex-row gap-6 items-center justify-center my-8 md:my-4 mx-auto min-h-[800px] max-w-7xl">
+    class="flex flex-col-reverse lg:flex-row gap-6 items-center justify-center my-8 md:my-4 mx-auto min-h-[500px] max-w-7xl">
     <div class="h-full flex flex-col gap-9 items-center justify-center px-2 w-full">
-      <fwb-heading tag="h2" class="text-center mt-3 lg:text-left lg:mt-0">{{ props.title }}</fwb-heading>
-      <p>
+      <fwb-heading tag="h2" class="text-center mt-3 lg:text-left lg:mt-0 text-primary">{{ props.title }}</fwb-heading>
+      <p class="font-normal">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Corporis cumque earum
         ab,
         corrupti, accusantium voluptas illum eos debitis fugit suscipit et exercitationem animi. Enim ducimus hic labore
         natus similique! Veritatis?
       </p>
-      <p>
+      <p class="font-normal">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Corporis cumque earum
         ab,
         corrupti, accusantium voluptas illum eos debitis fugit suscipit et exercitationem animi. Enim ducimus hic labore
         natus similique! Veritatis?
       </p>
-      <p>
+      <p class="font-normal">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Corporis cumque earum
         ab,

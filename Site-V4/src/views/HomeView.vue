@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeMount } from 'vue'
 import PresentationHome from '../components/PresentationHome.vue'
+import ProjectsHome from '../components/ProjectsHome.vue'
 import Buttons from '../components/Buttons/Buttons.vue'
 
 const API_URL = `http://admin.ekherchi.fr/wp-json/wp/v2/projects?acf_format=standard&_fields=acf`
@@ -69,12 +70,16 @@ onBeforeMount(() => {
   </div>
   <div id="about">
     <PresentationHome title="Bim Ba Da Boom"></PresentationHome>
+    <div class="parallax rounded-t-lg">
+    </div>
+    <ProjectsHome title="Projets"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
+    </ProjectsHome>
   </div>
-  <div class="bg-accent/15 h-[1000px]"></div>
 </template>
 
 
-<style>
+<style scoped>
 .animated-shape {
   z-index: 1;
   min-width: 250px;
@@ -118,5 +123,14 @@ onBeforeMount(() => {
     opacity: .1;
     transform: translate(-50%, -50%) rotate(360deg) scale(.2);
   }
+}
+
+.parallax {
+  background-image: url("http://admin.ekherchi.fr/wp-content/uploads/2024/01/farzad-p-xSl33Wxyc-unsplash-scaled.jpg");
+  height: 40vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

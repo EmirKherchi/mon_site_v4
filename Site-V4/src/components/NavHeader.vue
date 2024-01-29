@@ -28,9 +28,11 @@ onUnmounted(() => {
 <template>
   <fwb-navbar :class="{ 'shadow ': isFixed }" class="transition-all duration-300 top-0 inset-x-0 z-50 fixed">
     <template #logo>
-      <span class="arvo text-xl tracking-wide">
-        EMIR K.
-      </span>
+      <router-link :to="{ path: '/' }">
+        <span class="arvo text-xl tracking-wide">
+          EMIR K.
+        </span>
+      </router-link>
     </template>
     <template #default="{ isShowMenu }">
       <fwb-navbar-collapse :is-show-menu="isShowMenu" class="Capitalize mt-2">
@@ -60,7 +62,7 @@ onUnmounted(() => {
       </fwb-navbar-collapse>
     </template>
     <template #right-side>
-      <Buttons color="primary" size="sm">
+      <Buttons color="primary" size="sm" classes="font-semibold">
         Contact
       </Buttons>
     </template>
