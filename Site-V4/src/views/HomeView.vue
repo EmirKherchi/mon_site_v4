@@ -46,7 +46,7 @@ onBeforeMount(() => {
 <template>
   <div class="relative bg-zinc-50 rounded-lg overflow-hidden mt-20">
     <div class="animated-shape" :class="`bg-${colorTitle}`"></div>
-    <div class="flex flex-col items-center justify-center h-[80vh] gap-16 relative z-10">
+    <div class="flex flex-col items-center justify-center min-h-[80vh] gap-16 relative z-10 pb-6">
       <h1 class="font-black text-5xl px-4 lg:px-0 leading-relaxed text-center tracking-wide">
         Developpeur Web
         <br>

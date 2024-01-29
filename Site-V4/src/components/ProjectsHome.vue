@@ -19,13 +19,14 @@ const props = defineProps({
 
 <template>
   <div
-    class="flex flex-col gap-6 items-center mb-8 md:mb-4 mx-auto min-h-[500px] max-w-7xl bg-slate-50 py-6 rounded-b-lg">
+    class="flex flex-col gap-6 items-center justify-center mb-8 md:mb-4 mx-auto min-h-[500px] max-w-7xl bg-slate-50 py-6 rounded-b-lg">
     <!-- <fwb-heading tag="h2" class="text-center mt-3 text-secondary tracking-wide">{{ props.title }}</fwb-heading> -->
-    <h1 class="parallax-text text-[100px] text-secondary mx-auto text-center tracking-wider font-black">
+    <h1
+      class="parallax-text text-5xl lg:text-[100px] text-secondary mx-auto text-center tracking-wide font-black w-[80%]">
       Découvrez les Projets
     </h1>
     <fwb-heading tag="h3" class="text-center mt-3 lg:mt-0 font-normal text-lg w-[70%]">{{ props.subtitle }}</fwb-heading>
-    <div class="flex items-center justify-start flex-wrap gap-4 md:gap-10 px-6 my-10">
+    <div class="flex items-center justify-center xl:justify-start flex-wrap gap-4 md:gap-10 px-6 my-10">
       <fwb-card img-alt="Desk" img-src="https://flowbite.com/docs/images/blog/image-1.jpg" variant="image"
         class="min-h-[400px]">
         <div class="p-5">
