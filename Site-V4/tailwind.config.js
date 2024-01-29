@@ -13,8 +13,8 @@ export default {
         'primary-light': '#2CB590',
         'secondary': '#3A506B',
         'secondary-light': '#476385',
-        'accent': '#F21B3F',
-        'accent-light': '#F5516D'
+        'accent': '#FF3E5E',
+        'accent-light': '#F57087'
       },
     },
   },
