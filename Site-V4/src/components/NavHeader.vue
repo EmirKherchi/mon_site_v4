@@ -62,8 +62,12 @@ onUnmounted(() => {
       </fwb-navbar-collapse>
     </template>
     <template #right-side>
-      <Buttons color="primary" size="sm" classes="font-semibold">
-        Contact
+      <Buttons color="primary" size="sm" class="group">
+        <span class="font-semibold px-4">
+          Contact
+          <font-awesome-icon icon="fa-solid fa-envelope" class="ms-2 group-hover:hidden" />
+          <font-awesome-icon icon="fa-solid fa-envelope-open" class="ms-2 hidden group-hover:inline" />
+        </span>
       </Buttons>
     </template>
   </fwb-navbar>

@@ -364,15 +364,15 @@
 <style scoped>
 @keyframes swingArm {
   0% {
-    transform: rotateZ(1deg);
+    transform: rotateZ(0deg);
   }
 
   50% {
-    transform: rotateZ(-1deg);
+    transform: rotateZ(2deg);
   }
 
   100% {
-    transform: rotateZ(1deg);
+    transform: rotateZ(0deg);
   }
 }
 
@@ -382,12 +382,29 @@
   }
 
   50% {
-    transform: rotateZ(1deg);
+    transform: rotateZ(2deg);
   }
 
   /* Oscillation vers l'avant */
   100% {
     transform: rotateZ(0deg);
+  }
+
+  /* Retour à la position initiale */
+}
+
+@keyframes swingCloud {
+  0% {
+    transform: rotateZ(-5deg);
+  }
+
+  50% {
+    transform: rotateZ(5deg);
+  }
+
+  /* Oscillation vers l'avant */
+  100% {
+    transform: rotateZ(-5deg);
   }
 
   /* Retour à la position initiale */
@@ -412,66 +429,71 @@
 @keyframes sunFill {
   0% {
     fill: #F21B3F;
+    transform: scale(-.1);
+    opacity: 0;
   }
 
   50% {
     fill: #f2b21b;
+    transform: scale(1);
+    opacity: 1;
   }
 
   100% {
     fill: #F21B3F;
+    transform: scale(.1);
+    opacity: 0;
   }
 
   /* Retour à la position initiale */
 }
 
 .sun {
-  animation: sunFill 5s infinite ease-in-out
+  animation: sunFill 8s infinite ease-in-out
 }
 
 .first-ligne {
   animation: ligneCode 2s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 .second-ligne {
   animation: ligneCode 2s 1s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 .third-ligne {
   animation: ligneCode 2s 2s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 .fourth-ligne {
   animation: ligneCode 2s 3s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 .fifth-ligne {
   animation: ligneCode 2s 4s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 .sith-ligne {
   animation: ligneCode 2s 5s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 .seventh-ligne {
   animation: ligneCode 2s 6s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 .eight-ligne {
   animation: ligneCode 2s 7s infinite;
-  opacity: .5;
+  opacity: .3;
 }
 
 
 .image-animation-man {
-
   transform-origin: bottom center;
   /* transform: rotate(30deg); */
   animation: swingHead 2s infinite;
@@ -480,18 +502,18 @@
 .image-animation-cloud-1 {
   transform-origin: bottom center;
   /* transform: rotate(30deg); */
-  animation: swingHead 4s infinite;
+  animation: swingCloud 8s 2s infinite;
 }
 
 .image-animation-cloud-2 {
   transform-origin: bottom center;
   /* transform: rotate(30deg); */
-  animation: swingHead 3s infinite backwards;
+  animation: swingCloud 8s infinite;
 }
 
 .image-animation-woman {
   transform-origin: top;
   /* transform: rotate(30deg); */
-  animation: swingArm 4s infinite;
+  animation: swingArm 2s infinite;
 }
 </style>

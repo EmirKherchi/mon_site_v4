@@ -36,9 +36,11 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm">
+          <p class="text-primary-light hover:underline mt-3 text-sm group">
             <router-link to="/projects/:id">
               En savoir plus
+              <font-awesome-icon icon="fa-solid fa-arrow-right"
+                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
             </router-link>
           </p>
         </div>
@@ -52,9 +54,11 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm">
+          <p class="text-primary-light hover:underline mt-3 text-sm group">
             <router-link to="/projects/:id">
               En savoir plus
+              <font-awesome-icon icon="fa-solid fa-arrow-right"
+                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
             </router-link>
           </p>
         </div>
@@ -68,9 +72,11 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm">
+          <p class="text-primary-light hover:underline mt-3 text-sm group">
             <router-link to="/projects/:id">
               En savoir plus
+              <font-awesome-icon icon="fa-solid fa-arrow-right"
+                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
             </router-link>
           </p>
         </div>
@@ -84,9 +90,11 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm">
+          <p class="text-primary-light hover:underline mt-3 text-sm group">
             <router-link to="/projects/:id">
               En savoir plus
+              <font-awesome-icon icon="fa-solid fa-arrow-right"
+                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
             </router-link>
           </p>
         </div>
@@ -100,16 +108,18 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm">
+          <p class="text-primary-light hover:underline mt-3 text-sm group">
             <router-link to="/projects/:id">
               En savoir plus
+              <font-awesome-icon icon="fa-solid fa-arrow-right"
+                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
             </router-link>
           </p>
         </div>
       </fwb-card>
     </div>
     <router-link to="/projects">
-      <Buttons color="accent" size="xl" classes="font-bold">
+      <Buttons color="accent" size="xl">
         Voir tout les projets
       </Buttons>
     </router-link>

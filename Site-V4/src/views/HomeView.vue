@@ -62,8 +62,8 @@ onBeforeMount(() => {
         nesciunt voluptatibus totam a adipisci non dolorem quae molestiae quibusdam, perspiciatis, facere rerum impedit?
       </p>
       <router-link :to="{ path: '/', hash: '#about' }">
-        <Buttons color="accent" size="xl" class="">
-          En savoir plus
+        <Buttons color="accent" size="xl">
+          En savoir plus <font-awesome-icon icon="fa-solid fa-arrow-down" />
         </Buttons>
       </router-link>
     </div>
