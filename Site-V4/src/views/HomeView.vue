@@ -68,14 +68,12 @@ onBeforeMount(() => {
       </router-link>
     </div>
   </div>
-  <div id="about">
-    <PresentationHome title="Bim Ba Da Boom"></PresentationHome>
-    <div class="parallax rounded-t-lg">
-    </div>
-    <ProjectsHome title="Projets"
-      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
-    </ProjectsHome>
+  <PresentationHome id="about" title="Bim Ba Da Boom"></PresentationHome>
+  <div class="parallax rounded-t-lg">
   </div>
+  <ProjectsHome title="Projets"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
+  </ProjectsHome>
 </template>
 
 
