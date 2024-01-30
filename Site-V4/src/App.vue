@@ -1,6 +1,7 @@
 <script setup>
 // import { RouterLink, RouterView } from 'vue-router'
 import NavHeader from './components/NavHeader.vue'
+import NavFooter from './components/NavFooter.vue'
 </script>
 
 <template>
@@ -32,9 +33,14 @@ import NavHeader from './components/NavHeader.vue'
     <NavHeader />
     <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
   </header>
+
   <section class="container mx-auto  px-2 sm:px-0 py-2.5">
     <RouterView />
   </section>
+
+  <footer>
+    <NavFooter />
+  </footer>
 </template>
 
 <style scoped>
