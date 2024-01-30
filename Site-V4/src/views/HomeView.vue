@@ -44,7 +44,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="relative bg-zinc-50 rounded-lg overflow-hidden mt-20">
+  <div class="relative rounded-lg overflow-hidden mt-20">
     <div class="animated-shape" :class="`bg-${colorTitle}`"></div>
     <div class="flex flex-col items-center justify-center min-h-[80vh] gap-16 relative z-10 pb-6">
       <h1 class="font-black text-5xl px-4 lg:px-0 leading-relaxed text-center tracking-wide">
@@ -69,7 +69,7 @@ onBeforeMount(() => {
     </div>
   </div>
   <PresentationHome id="about" title="Bim Ba Da Boom"></PresentationHome>
-  <div class="parallax rounded-t-lg">
+  <div class="parallax my-24">
   </div>
   <ProjectsHome title="Projets"
     subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
