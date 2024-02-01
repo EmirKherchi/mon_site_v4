@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeMount } from 'vue'
 import PresentationHome from '../components/PresentationHome.vue'
 import ProjectsHome from '../components/ProjectsHome.vue'
+import ContactHome from '../components/ContactHome.vue'
 import Buttons from '../components/Buttons/Buttons.vue'
 
 const API_URL = `http://admin.ekherchi.fr/wp-json/wp/v2/projects?acf_format=standard&_fields=acf`
@@ -74,6 +75,8 @@ onBeforeMount(() => {
   <ProjectsHome title="Projets"
     subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
   </ProjectsHome>
+  <ContactHome>
+  </ContactHome>
 </template>
 
 

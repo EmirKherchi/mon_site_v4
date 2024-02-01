@@ -18,7 +18,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex flex-col gap-6 items-center justify-center mb-8 md:mb-4 mx-auto min-h-[500px] py-6 rounded-b-lg">
+  <div class="flex flex-col gap-6 items-center justify-center mb-8 md:mb-4 mx-auto min-h-[500px] py-6">
     <!-- <fwb-heading tag="h2" class="text-center mt-3 text-secondary tracking-wide">{{ props.title }}</fwb-heading> -->
     <h1 class="text-5xl lg:text-[60px] text-primary mx-auto text-center tracking-wide my-6 font-black lg:w-[40%]">
       Découvrez les Projets
