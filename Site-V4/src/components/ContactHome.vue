@@ -3,22 +3,22 @@
     class="mb-8 md:mb-4 mx-auto min-h-[500px] py-6 rounded-lg bg-slate-50 flex items-center flex-col justify-center gap-6">
     Contact
     <div class="flex flex-col lg:flex-row gap-6 items-center justify-center max-w-6xl mx-auto">
-      <form @submit="checkForm(event)" class="w-[50%] bg-white p-8">
-        <fwb-input v-model="firstname" label="Prénom" placeholder="Votre Prénom" required />
+      <form @submit="checkForm" class="w-[50%] bg-white p-8">
+        <fwb-input v-model="firstname" label="Prénom *" placeholder="Votre Prénom" required />
         <hr class="mt-4 border-0">
 
-        <fwb-input v-model="lastname" label="Nom" placeholder="Votre Nom" required />
+        <fwb-input v-model="lastname" label="Nom *" placeholder="Votre Nom" required />
         <hr class="mt-4 border-0">
 
-        <fwb-input @blur="checkPhone()" v-model="phone" required placeholder="Votre numéro de téléphone" label="Téléphone"
-          :validation-status="phoneValidationStatus">
+        <fwb-input @blur="checkPhone()" v-model="phone" required placeholder="Votre numéro de téléphone"
+          label="Téléphone *" :validation-status="phoneValidationStatus">
           <template v-if="phoneValidationStatus === 'error'" #validationMessage>
             Oups... le numéro de téléphone ne semble pas valide...
           </template>
         </fwb-input>
         <hr class="mt-4 border-0">
 
-        <fwb-input @blur="checkEmail()" v-model="email" required placeholder="Votre adresse email" label="E-mail"
+        <fwb-input @blur="checkEmail()" v-model="email" required placeholder="Votre adresse email" label="E-mail *"
           :validation-status="emailValidationStatus">
           <template v-if="emailValidationStatus === 'error'" #validationMessage>
             Oups... l'adresse email ne semble pas valide...
@@ -42,6 +42,9 @@
         </p>
       </div>
     </div>
+    <Buttons @click="sendEmail('voilà le texte')" color="accent">
+      Envoyer
+    </Buttons>
   </section>
 </template>
 
@@ -49,6 +52,7 @@
 import { ref } from 'vue'
 import { FwbInput, FwbTextarea } from 'flowbite-vue'
 import Buttons from '../components/Buttons/Buttons.vue'
+import { sendEmail } from '../smtp.js';
 
 const firstname = ref('')
 const lastname = ref('')
@@ -77,11 +81,21 @@ const checkPhone = () => {
 }
 
 const checkForm = (e) => {
-  console.log('error');
-  if (phoneValidationStatus.value !== 'success' || emailValidationStatus.value !== 'success') {
-    console.log('error');
-  }
+  sendFormContact();
+
   e.preventDefault();
+  if (phoneValidationStatus.value !== 'success' || emailValidationStatus.value !== 'success') {
+    return;
+  }
+}
+
+const sendFormContact = async () => {
+  try {
+    await sendEmail('bro');
+    alert('E-mail envoyé avec succès !');
+  } catch (err) {
+    alert('Une erreur s\'est produite lors de l\'envoi de l\'e-mail.');
+  }
 }
 </script>
 
