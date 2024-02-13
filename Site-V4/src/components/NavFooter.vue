@@ -26,8 +26,10 @@ const year = date.getFullYear()
               A Propos
             </router-link>
           </fwb-footer-link>
-          <fwb-footer-link href="/projects">
-            Projets
+          <fwb-footer-link>
+            <router-link :to="{ path: '/', hash: '#projects' }">
+              Projets
+            </router-link>
           </fwb-footer-link>
           <fwb-footer-link>
             <router-link :to="{ path: '/', hash: '#contact' }">

@@ -1,9 +1,19 @@
 <template>
   <section id="contact"
-    class="mb-8 md:mb-4 mx-auto min-h-[500px] py-6 rounded-lg bg-slate-50 flex items-center flex-col justify-center gap-6">
-    Contact
+    class="mb-8 md:mb-4 mx-auto min-h-[500px] rounded-lg bg-slate-50 flex items-center flex-col justify-center gap-6 py-24">
+    <fwb-heading tag="h2" class="text-center mt-3 lg:mt-0 text-primary tracking-wide">Contact</fwb-heading>
     <div class="flex flex-col lg:flex-row gap-6 items-center justify-center max-w-6xl mx-auto">
       <form @submit="checkForm" class="w-[50%] bg-white p-8">
+        <fwb-toast
+          class="shadow-xl transform transition-transform duration-500 ease-in-out fixed top-24 left-2 z-[60000000]"
+          :class="emailSend === 'success' ? '-translate-x-[0px]' : ' -translate-x-[1200px]'" divide type="success">
+          Votre message est envoyé... Merci et à bientôt
+        </fwb-toast>
+        <fwb-toast
+          class=" shadow-xl transform transition-transform duration-500 ease-in-out fixed top-24 left-2 z-[60000000]"
+          :class="emailSend === 'error' ? '-translate-x-[0px]' : ' -translate-x-[1200px]'" divide type="danger">
+          Oups... Une erreur s'est glissée dans l'envoi du message pourriez-vous réesayer ?
+        </fwb-toast>
         <fwb-input v-model="firstname" label="Prénom *" placeholder="Votre Prénom" required />
         <hr class="mt-4 border-0">
 
@@ -26,41 +36,56 @@
         </fwb-input>
 
         <hr class="mt-4 border-0">
-        <fwb-textarea v-model="message" :rows="4" label="Votre message" placeholder="Votre Message..." />
+        <fwb-textarea v-model="message" :rows="4" label="Message" placeholder="Votre Message..." />
 
         <hr class="mt-4 border-0">
-        <Buttons type="submit" color="accent">
+        <Buttons type="submit" color="primary">
           Envoyer
         </Buttons>
 
       </form>
-      <div class="w-[50%]">
-        <p>
+      <div class="w-[50%] flex flex-col  gap-7 text-justify">
+        <p class="font-light text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facilis, repellat recusandae porro at ullam
           molestiae voluptate nesciunt nisi beatae, deserunt totam sed, possimus consectetur autem exercitationem quisquam
           praesentium aspernatur.
         </p>
+        <p class="font-light text-secondary">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facilis, repellat recusandae porro at ullam
+          molestiae voluptate nesciunt nisi beatae, deserunt totam sed, possimus consectetur autem exercitationem quisquam
+          praesentium aspernatur.
+        </p>
+        <p class="text-secondary">
+          Ici liste des contacts (linkedin, mail, malt)
+        </p>
+        <p class="font-medium text-primary text-center">
+          Vous souhaitez en savoir plus ? Être conseillé pour votre projet ?
+          Je vous propose d'en discuter ensemble via un Call
+          <a href="https://calendly.com/ekherchi/prise-de-contact-pour-votre-projet" target="_blank">
+            <Buttons color="accent block mx-auto mt-5">
+              Prise de RDV Calendly
+            </Buttons>
+          </a>
+        </p>
       </div>
     </div>
-    <Buttons @click="sendEmail('voilà le texte')" color="accent">
-      Envoyer
-    </Buttons>
   </section>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { FwbInput, FwbTextarea } from 'flowbite-vue'
+import { FwbInput, FwbTextarea, FwbToast, FwbHeading } from 'flowbite-vue'
 import Buttons from '../components/Buttons/Buttons.vue'
 import { sendEmail } from '../smtp.js';
 
 const firstname = ref('')
 const lastname = ref('')
 const email = ref('')
-const emailValidationStatus = ref('');
+const emailValidationStatus = ref('')
 const phone = ref('')
-const phoneValidationStatus = ref('');
+const phoneValidationStatus = ref('')
 const message = ref('')
+const emailSend = ref('')
 
 const checkEmail = () => {
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -81,22 +106,50 @@ const checkPhone = () => {
 }
 
 const checkForm = (e) => {
-  sendFormContact();
-
   e.preventDefault();
   if (phoneValidationStatus.value !== 'success' || emailValidationStatus.value !== 'success') {
     return;
   }
+  sendFormContact();
 }
 
 const sendFormContact = async () => {
-  try {
-    await sendEmail('bro');
-    alert('E-mail envoyé avec succès !');
-  } catch (err) {
-    alert('Une erreur s\'est produite lors de l\'envoi de l\'e-mail.');
+  const res = await sendEmail(emailBody());
+  if (res === 'OK') {
+    emailSend.value = 'success'
+
+    // Clean form
+    firstname.value = ''
+    lastname.value = ''
+    email.value = ''
+    emailValidationStatus.value = ''
+    phone.value = ''
+    phoneValidationStatus.value = ''
+    message.value = ''
+
+    setTimeout(() => {
+      emailSend.value = '';
+    }, 5000);
+  } else {
+    emailSend.value = 'error';
+    setTimeout(() => {
+      emailSend.value = '';
+    }, 5000);
   }
 }
-</script>
 
-<style></style>
+const emailBody = () => {
+  return `
+    Message en provenance du site ekherchi.fr de la part de <strong> ${firstname.value} ${lastname.value} </strong> <br>
+    Le numéro de téléphone est le <strong> ${phone.value} </strong> <br>
+    L'adresse e-mail est <strong> ${email.value} </strong> <br> 
+    Le message est le suivant : <strong>${message.value}</strong>
+  `
+}
+</script>
+<style scoped>
+#toast-default {
+  background: theme('colors.primary-light');
+  color: white;
+}
+</style>

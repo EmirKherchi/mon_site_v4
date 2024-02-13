@@ -1,32 +1,5 @@
-<script setup>
-import { FwbNavbar, FwbNavbarCollapse, FwbNavbarLink } from 'flowbite-vue'
-import { useRoute } from 'vue-router'
-import Buttons from './Buttons/Buttons.vue'
-import { ref, onMounted, onUnmounted } from 'vue';
-
-
-const route = useRoute();
-const isFixed = ref(false);
-
-// Fonction pour détecter le défilement de la page
-const handleScroll = () => {
-  isFixed.value = window.pageYOffset > 0;
-};
-
-// Ajouter un écouteur d'événement lors du montage du composant
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-// Supprimer l'écouteur d'événement lors du démontage du composant
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
-
-</script>
-
 <template>
-  <fwb-navbar :class="{ 'shadow ': isFixed }" class="transition-all duration-300 top-0 inset-x-0 z-50 fixed">
+  <fwb-navbar :class="{ 'shadow': isFixed }" class="transition-all duration-300 top-0 inset-x-0 z-50 fixed">
     <template #logo>
       <router-link :to="{ path: '/' }">
         <span class="arvo text-xl tracking-wide">
@@ -39,7 +12,7 @@ onUnmounted(() => {
         <fwb-navbar-link link="/">
           <span
             class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
-            :class="route.path === '/' ? 'text-primary' : ''">
+            :class="route.path === '/' && !route.hash && !spyHash ? 'text-primary' : ''">
             Accueil
           </span>
         </fwb-navbar-link>
@@ -47,17 +20,19 @@ onUnmounted(() => {
           <router-link :to="{ path: '/', hash: '#about' }">
             <span
               class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
-              :class="route.path === '/about' ? 'text-primary' : ''">
-              A propos
+              :class="(route.hash || spyHash) === '#about' ? 'text-primary' : ''">
+              A Propos
             </span>
           </router-link>
         </fwb-navbar-link>
-        <fwb-navbar-link link="/projects">
-          <span
-            class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
-            :class="route.path === '/projects' ? 'text-primary' : ''">
-            Projets
-          </span>
+        <fwb-navbar-link>
+          <router-link :to="{ path: '/', hash: '#projects' }">
+            <span
+              class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
+              :class="(route.hash || spyHash) === '#projects' ? 'text-primary' : ''">
+              Projets
+            </span>
+          </router-link>
         </fwb-navbar-link>
       </fwb-navbar-collapse>
     </template>
@@ -74,4 +49,48 @@ onUnmounted(() => {
     </template>
   </fwb-navbar>
 </template>
+<script setup>
+import { FwbNavbar, FwbNavbarCollapse, FwbNavbarLink } from 'flowbite-vue'
+import Buttons from './Buttons/Buttons.vue'
+import { useRoute } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue';
 
+const route = useRoute();
+const spyHash = ref('')
+const isFixed = ref(false);
+
+const handleScroll = () => {
+  const scrollPosition = window.scrollY;
+  const sections = document.querySelectorAll('section[id]');
+  let isSectionVisible = false;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      const hash = '#' + section.id;
+      spyHash.value = hash;
+      isSectionVisible = true;
+    }
+  });
+
+  if (!isSectionVisible) {
+    spyHash.value = '';
+  }
+  // Mettre à jour isFixed
+  isFixed.value = scrollPosition > 0; // Mettre à true si la position de défilement est supérieure à 0, sinon false
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+</script>
+
+<style>
+/* Style de votre barre de navigation */
+</style>

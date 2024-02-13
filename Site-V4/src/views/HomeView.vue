@@ -57,7 +57,7 @@ onBeforeMount(() => {
           {{ skillsTitle }}
         </span>
       </h1>
-      <p class="text-center px-4 lg:px-0 lg:w-[60%] xl:w-[40%]">
+      <p class="text-center px-4 lg:px-0 lg:w-[60%] xl:w-[40%] text-secondary">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus unde quis nobis
         fugiat, hic illum ullam
         nesciunt voluptatibus totam a adipisci non dolorem quae molestiae quibusdam, perspiciatis, facere rerum impedit?
@@ -69,12 +69,15 @@ onBeforeMount(() => {
       </router-link>
     </div>
   </div>
-  <PresentationHome id="about" title="Bim Ba Da Boom"></PresentationHome>
-  <div class="parallax my-24">
-  </div>
-  <ProjectsHome title="Projets"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
-  </ProjectsHome>
+  <section id="about">
+    <PresentationHome title="Bim Ba Da Boom" />
+    <div class="parallax my-12"></div>
+  </section>
+  <section class="py-24" id="projects">
+    <ProjectsHome title="Projets"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
+    </ProjectsHome>
+  </section>
   <ContactHome>
   </ContactHome>
 </template>

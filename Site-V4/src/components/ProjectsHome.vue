@@ -1,7 +1,7 @@
 <script setup>
 import { FwbHeading, FwbCard } from 'flowbite-vue'
-import Buttons from '../components/Buttons/Buttons.vue'
-
+import ModalProject from '../components/ModalProject.vue'
+import { ref } from 'vue'
 
 
 const props = defineProps({
@@ -15,9 +15,12 @@ const props = defineProps({
   }
 })
 
+const showModal = ref(false);
+
 </script>
 
 <template>
+  <modal-project :showModal="showModal" @toggleModal="showModal = false" />
   <div class="flex flex-col gap-6 items-center justify-center mb-8 md:mb-4 mx-auto min-h-[500px] py-6">
     <!-- <fwb-heading tag="h2" class="text-center mt-3 text-secondary tracking-wide">{{ props.title }}</fwb-heading> -->
     <h1 class="text-5xl lg:text-[60px] text-primary mx-auto text-center tracking-wide my-6 font-black lg:w-[40%]">
@@ -36,12 +39,10 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm group">
-            <router-link to="/projects/:id">
-              En savoir plus
-              <font-awesome-icon icon="fa-solid fa-arrow-right"
-                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-            </router-link>
+          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
+            En savoir plus
+            <font-awesome-icon icon="fa-solid fa-arrow-right"
+              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
           </p>
         </div>
       </fwb-card>
@@ -54,12 +55,10 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm group">
-            <router-link to="/projects/:id">
-              En savoir plus
-              <font-awesome-icon icon="fa-solid fa-arrow-right"
-                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-            </router-link>
+          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
+            En savoir plus
+            <font-awesome-icon icon="fa-solid fa-arrow-right"
+              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
           </p>
         </div>
       </fwb-card>
@@ -72,12 +71,10 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm group">
-            <router-link to="/projects/:id">
-              En savoir plus
-              <font-awesome-icon icon="fa-solid fa-arrow-right"
-                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-            </router-link>
+          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
+            En savoir plus
+            <font-awesome-icon icon="fa-solid fa-arrow-right"
+              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
           </p>
         </div>
       </fwb-card>
@@ -90,12 +87,10 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm group">
-            <router-link to="/projects/:id">
-              En savoir plus
-              <font-awesome-icon icon="fa-solid fa-arrow-right"
-                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-            </router-link>
+          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
+            En savoir plus
+            <font-awesome-icon icon="fa-solid fa-arrow-right"
+              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
           </p>
         </div>
       </fwb-card>
@@ -108,20 +103,18 @@ const props = defineProps({
           <p class="text-secondary font-light text-md">
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
-          <p class="text-primary-light hover:underline mt-3 text-sm group">
-            <router-link to="/projects/:id">
-              En savoir plus
-              <font-awesome-icon icon="fa-solid fa-arrow-right"
-                class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-            </router-link>
+          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
+            En savoir plus
+            <font-awesome-icon icon="fa-solid fa-arrow-right"
+              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
           </p>
         </div>
       </fwb-card>
     </div>
-    <router-link to="/projects">
+    <!-- <router-link to="/projects">
       <Buttons color="accent" size="xl">
         Voir tout les projets
       </Buttons>
-    </router-link>
+    </router-link> -->
   </div>
 </template>

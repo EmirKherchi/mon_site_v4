@@ -17,7 +17,9 @@ const props = defineProps({
     <div
       class="flex flex-col-reverse lg:flex-row gap-6 items-center justify-center my-8 md:my-4 mx-auto min-h-[500px] max-w-7xl">
       <div class="h-full flex flex-col gap-9 items-center justify-center px-2 w-full">
-        <fwb-heading tag="h2" class="text-center mt-3 lg:text-left lg:mt-0 text-primary">{{ props.title }}</fwb-heading>
+        <fwb-heading tag="h2" class="text-center mt-3 lg:text-left lg:mt-0 text-primary tracking-wide">
+          {{ props.title }}
+        </fwb-heading>
         <p class="font-normal text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Corporis cumque earum
