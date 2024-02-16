@@ -12,7 +12,7 @@
         <fwb-navbar-link link="/">
           <span
             class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
-            :class="route.path === '/' && !route.hash && !spyHash ? 'text-primary' : ''">
+            :class="route.path === '/' && !spyHash ? 'text-primary' : ''">
             Accueil
           </span>
         </fwb-navbar-link>
@@ -20,7 +20,7 @@
           <router-link :to="{ path: '/', hash: '#about' }">
             <span
               class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
-              :class="(route.hash || spyHash) === '#about' ? 'text-primary' : ''">
+              :class="spyHash === '#about' ? 'text-primary' : ''">
               A Propos
             </span>
           </router-link>
@@ -29,7 +29,7 @@
           <router-link :to="{ path: '/', hash: '#projects' }">
             <span
               class="duration-300 font-semibold px-2 py-1 tracking-wide text-lg hover:bg-primary hover:text-white rounded-lg hover:shadow-lg "
-              :class="(route.hash || spyHash) === '#projects' ? 'text-primary' : ''">
+              :class="spyHash === '#projects' ? 'text-primary' : ''">
               Projets
             </span>
           </router-link>
@@ -38,11 +38,12 @@
     </template>
     <template #right-side>
       <router-link :to="{ path: '/', hash: '#contact' }">
-        <Buttons color="primary" size="sm" class="group">
+        <Buttons color="primary" size="sm" @mouseenter="mailHovered = true" @mouseleave="mailHovered = false">
           <span class="font-semibold px-4">
             Contact
-            <font-awesome-icon icon="fa-solid fa-envelope" class="ms-2 group-hover:hidden" />
-            <font-awesome-icon icon="fa-solid fa-envelope-open" class="ms-2 hidden group-hover:inline" />
+            <font-awesome-icon v-if="spyHash !== '#contact' && !mailHovered" icon="fa-solid fa-envelope" class="ms-2" />
+            <font-awesome-icon v-if="spyHash === '#contact' || mailHovered" icon="fa-solid fa-envelope-open"
+              class="ms-2" />
           </span>
         </Buttons>
       </router-link>
@@ -58,6 +59,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const route = useRoute();
 const spyHash = ref('')
 const isFixed = ref(false);
+const mailHovered = ref(false);
 
 const handleScroll = () => {
   const scrollPosition = window.scrollY;
