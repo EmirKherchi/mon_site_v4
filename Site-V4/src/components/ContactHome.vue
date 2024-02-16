@@ -2,8 +2,8 @@
   <section id="contact"
     class="mb-8 md:mb-4 mx-auto min-h-[500px] rounded-lg bg-slate-50 flex items-center flex-col justify-center gap-6 py-24">
     <fwb-heading tag="h2" class="text-center mt-3 lg:mt-0 text-primary tracking-wide">Contact</fwb-heading>
-    <div class="flex flex-col lg:flex-row gap-6 items-center justify-center max-w-6xl mx-auto">
-      <form @submit="checkForm" class="w-[50%] bg-white p-8">
+    <div class="flex flex-col lg:flex-row gap-6 items-center justify-center max-w-6xl mx-auto px-8 lg:px-2">
+      <form @submit="checkForm" class="w-full border lg:border-none lg:w-[50%] bg-white p-8">
         <fwb-toast
           class="shadow-xl transform transition-transform duration-500 ease-in-out fixed top-24 left-2 z-[60000000]"
           :class="emailSend === 'success' ? '-translate-x-[0px]' : ' -translate-x-[1200px]'" divide type="success">
@@ -44,7 +44,7 @@
         </Buttons>
 
       </form>
-      <div class="w-[50%] flex flex-col  gap-7 text-justify">
+      <div class="lg:w-[50%] flex flex-col  gap-7 text-justify">
         <p class="font-light text-secondary">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facilis, repellat recusandae porro at ullam
           molestiae voluptate nesciunt nisi beatae, deserunt totam sed, possimus consectetur autem exercitationem quisquam
@@ -55,8 +55,24 @@
           molestiae voluptate nesciunt nisi beatae, deserunt totam sed, possimus consectetur autem exercitationem quisquam
           praesentium aspernatur.
         </p>
-        <p class="text-secondary">
-          Ici liste des contacts (linkedin, mail, malt)
+        <p class="text-secondary flex items-center justify-center gap-6">
+          <a target="_blank" href="https://www.linkedin.com/in/emir-kherchi/">
+            <font-awesome-icon
+              class="w-7 h-7 rounded-full p-3 text-white bg-secondary-light border border-secondary-light hover:bg-transparent hover:text-secondary-light transition-all duration-300"
+              icon="fa-brands fa-linkedin-in" />
+          </a>
+          <a target="_blank"
+            href="https://www.malt.fr/profile/emirkherchi?q=emir+kherchi&sourceComponent=home_unlogged&searchid=65cf34501bc84e344b47920e">
+            <span
+              class="font-bold text-md rounded-full w-14 h-14 flex items-center justify-center tracking-widest text-white bg-accent-light border border-accent-light hover:bg-transparent hover:text-accent-light transition-all duration-300">
+              Malt
+            </span>
+          </a>
+          <a target="_blank" href="https://github.com/EmirKherchi">
+            <font-awesome-icon
+              class="w-9 h-9 rounded-full p-2 text-white bg-gray-800  border border-gray-800 hover:bg-transparent hover:text-gray-800 transition-all duration-300"
+              icon="fa-brands fa-github" />
+          </a>
         </p>
         <p class="font-medium text-primary text-center">
           Vous souhaitez en savoir plus ? Être conseillé pour votre projet ?
