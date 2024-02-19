@@ -1,6 +1,7 @@
 <script setup>
 import { FwbHeading } from 'flowbite-vue'
 import MainAbout from '../components/svg/MainAbout.vue'
+import Button from './Buttons/Buttons.vue'
 
 
 const props = defineProps({
@@ -21,26 +22,30 @@ const props = defineProps({
           {{ props.title }}
         </fwb-heading>
         <p class="font-normal text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Corporis cumque earum
-          ab,
-          corrupti, accusantium voluptas illum eos debitis fugit suscipit et exercitationem animi. Enim ducimus hic labore
-          natus similique! Veritatis?
+          En tant que développeur web freelance passionné, je propose des solutions numériques sur mesure pour répondre
+          aux besoins de mes clients. Avec une expertise approfondie dans les technologies front-end telles que
+          <strong class="font-semibold text-primary">JavaScript, Vue.js, React et WordPress</strong>, je vous accompagne à
+          chaque étape de votre projet, de la conception à la
+          réalisation.
         </p>
         <p class="font-normal text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Corporis cumque earum
-          ab,
-          corrupti, accusantium voluptas illum eos debitis fugit suscipit et exercitationem animi. Enim ducimus hic labore
-          natus similique! Veritatis?
+          Mon approche centrée sur le client garantit une communication transparente et une compréhension approfondie de
+          vos objectifs commerciaux. <strong class="font-semibold text-primary">Que vous souhaitiez créer un site vitrine,
+            une application web spécifique ou une
+            boutique en ligne</strong>, je m'engage à transformer votre vision en réalité numérique, en mettant l'accent
+          sur la
+          qualité, la performance et l'expérience utilisateur.
         </p>
         <p class="font-normal text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Corporis cumque earum
-          ab,
-          corrupti, accusantium voluptas illum eos debitis fugit suscipit et exercitationem animi. Enim ducimus hic labore
-          natus similique! Veritatis?
+          Faites confiance à mon expertise et à ma passion pour le développement web pour concrétiser vos idées les plus
+          ambitieuses. <strong class="font-semibold text-primary">Ensemble, créons des solutions numériques
+            innovantes</strong> qui propulseront votre entreprise vers le
+          succès en ligne.
         </p>
+
+        <a href="http://admin.ekherchi.fr/wp-content/uploads/2024/02/Cv-Emir-Kherchi.pdf" target="_blank" download>
+          <Button color="accent">Découvrir mon parcours professionnel</Button>
+        </a>
       </div>
       <div class="h-full flex items-center justify-center px-2 w-full relative animation">
         <MainAbout />

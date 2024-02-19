@@ -57,11 +57,17 @@ onBeforeMount(() => {
           {{ skillsTitle }}
         </span>
       </h1>
-      <p class="text-center px-4 lg:px-0 lg:w-[60%] xl:w-[40%] text-secondary">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus unde quis nobis
-        fugiat, hic illum ullam
-        nesciunt voluptatibus totam a adipisci non dolorem quae molestiae quibusdam, perspiciatis, facere rerum impedit?
-      </p>
+      <div class="text-center px-4 lg:px-0 lg:w-[60%] xl:w-[50%] text-secondary flex flex-col gap-3">
+        <p class="leading-7">
+          Bienvenue sur mon site ! Je suis Emir Kherchi, développeur web freelance basé à Caen. Spécialisé dans les
+          technologies front-end telles que JavaScript, Vue.js, React et WordPress, je crée des sites web ergonomiques et
+          esthétiques pour répondre à vos besoins.
+        </p>
+        <p class="text-primary font-semibold pt-6">
+          Site vitrine, application web spécifique ou site e-commerce ?<br>
+          Ensemble, transformons votre vision en réalité numérique !
+        </p>
+      </div>
       <router-link :to="{ path: '/', hash: '#about' }">
         <Buttons color="accent" size="xl">
           En savoir plus <font-awesome-icon icon="fa-solid fa-arrow-down" />
@@ -70,12 +76,12 @@ onBeforeMount(() => {
     </div>
   </div>
   <section id="about">
-    <PresentationHome title="Bim Ba Da Boom" />
+    <PresentationHome title="À propos de moi" />
     <div class="parallax my-12"></div>
   </section>
   <section class="py-24" id="projects">
     <ProjectsHome title="Projets"
-      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,">
+      subtitle="Découvrez une variété de mes projets de développement web, mettant en œuvre différentes technologies et réalisés tant en collaboration avec des équipes que de manière individuelle.">
     </ProjectsHome>
   </section>
   <ContactHome>

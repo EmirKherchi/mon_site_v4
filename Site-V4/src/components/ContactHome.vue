@@ -46,14 +46,14 @@
       </form>
       <div class="lg:w-[50%] flex flex-col  gap-7 text-justify">
         <p class="font-light text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facilis, repellat recusandae porro at ullam
-          molestiae voluptate nesciunt nisi beatae, deserunt totam sed, possimus consectetur autem exercitationem quisquam
-          praesentium aspernatur.
+          Vous avez un projet en tête ou des questions sur mes services ? Je suis là pour vous aider à concrétiser vos
+          idées et à trouver des solutions adaptées à vos besoins. N'hésitez pas à me contacter via le formulaire et je
+          vous répondrai dans les plus brefs délais pour discuter avec vous de votre projet.
         </p>
         <p class="font-light text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facilis, repellat recusandae porro at ullam
-          molestiae voluptate nesciunt nisi beatae, deserunt totam sed, possimus consectetur autem exercitationem quisquam
-          praesentium aspernatur.
+          Si vous préférez planifier un appel pour discuter en détail de votre projet, vous pouvez également réserver un
+          créneau dans mon agenda via Calendly. Cliquez sur le lien ci-dessous pour trouver un moment qui vous convient,
+          et nous pourrons ainsi organiser une discussion personnalisée pour explorer vos besoins et objectifs.
         </p>
         <p class="text-secondary flex items-center justify-center gap-6">
           <a target="_blank" href="https://www.linkedin.com/in/emir-kherchi/">
@@ -72,6 +72,15 @@
             <font-awesome-icon
               class="w-9 h-9 rounded-full p-2 text-white bg-gray-800  border border-gray-800 hover:bg-transparent hover:text-gray-800 transition-all duration-300"
               icon="fa-brands fa-github" />
+          </a>
+          <a href="mailto:contact@ekherchi.fr">
+            <font-awesome-icon class="w-7 h-7 rounded-full p-3 text-white bg-accent border border-accent
+              hover:bg-transparent hover:text-accent transition-all duration-300" icon="fa-solid fa-envelope" />
+          </a>
+          <a href="tel:+33602112273">
+            <font-awesome-icon
+              class="w-7 h-7 rounded-full p-3 text-white bg-primary  border border-primary hover:bg-transparent hover:text-primary transition-all duration-300"
+              icon="fa-solid fa-phone" />
           </a>
         </p>
         <p class="font-medium text-primary text-center">
