@@ -22,9 +22,9 @@ const { result } = useQuery(gql`
               skills
               title
               img {
-                      altText
-                      link
-                    }
+                    altText
+                    mediaItemUrl
+                  }
             }
           }
         }
@@ -34,7 +34,7 @@ const { result } = useQuery(gql`
 )
 
 watchEffect(() => {
-  projects.value = result.value?.projects?.nodes ?? [];
+  projects.value = result.value?.projects?.nodes.map(project => project.publicationsProjects.project) ?? [];
   console.log(projects.value)
 })
 
@@ -95,7 +95,8 @@ onMounted(() => {
   </section>
   <section class="py-24" id="projects">
     <ProjectsHome v-if="projects.length" title="Projets"
-      subtitle="Découvrez une variété de mes projets de développement web, mettant en œuvre différentes technologies et réalisés tant en collaboration avec des équipes que de manière individuelle.">
+      subtitle="Découvrez une variété de mes projets de développement web, mettant en œuvre différentes technologies et réalisés tant en collaboration avec des équipes que de manière individuelle."
+      :projects="projects">
     </ProjectsHome>
     <div v-else class="overflow-hidden mt-20 min-h-[500px] flex items-center justify-center">
       <font-awesome-icon icon="fa-solid fa-spinner" spin class="text-5xl text-primary" />

@@ -12,6 +12,10 @@ const props = defineProps({
   subtitle: {
     type: String,
     default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  },
+  projects: {
+    type: Array,
+    default: () => []
   }
 })
 
@@ -30,78 +34,16 @@ const showModal = ref(false);
       {{ props.subtitle }}
     </fwb-heading>
     <div class="flex items-center justify-center flex-wrap gap-4 md:gap-10 px-6 my-10">
-      <fwb-card img-alt="Desk" img-src="https://flowbite.com/docs/images/blog/image-1.jpg" variant="image"
+      <fwb-card v-for="project, i in projects" :key="i"
+        :img-alt="project.img?.altText || 'Projet emir kherchi developpeur web freelance Caen'"
+        :img-src="project.img?.mediaItemUrl || 'https://flowbite.com/docs/images/blog/image-1.jpg'" variant="image"
         class="min-h-[400px]">
         <div class="p-5">
           <h5 class="mb-2 text-xl font-bold text-secondary">
-            Noteworthy technology acquisitions 2021
+            {{ project.title }}
           </h5>
           <p class="text-secondary font-light text-md">
-            Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-          </p>
-          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
-            En savoir plus
-            <font-awesome-icon icon="fa-solid fa-arrow-right"
-              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-          </p>
-        </div>
-      </fwb-card>
-      <fwb-card img-alt="Desk" img-src="https://flowbite.com/docs/images/blog/image-1.jpg" variant="image"
-        class="min-h-[400px]">
-        <div class="p-5">
-          <h5 class="mb-2 text-xl font-bold text-secondary">
-            Noteworthy technology acquisitions 2021
-          </h5>
-          <p class="text-secondary font-light text-md">
-            Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-          </p>
-          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
-            En savoir plus
-            <font-awesome-icon icon="fa-solid fa-arrow-right"
-              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-          </p>
-        </div>
-      </fwb-card>
-      <fwb-card img-alt="Desk" img-src="https://flowbite.com/docs/images/blog/image-1.jpg" variant="image"
-        class="min-h-[400px]">
-        <div class="p-5">
-          <h5 class="mb-2 text-xl font-bold text-secondary">
-            Noteworthy technology acquisitions 2021
-          </h5>
-          <p class="text-secondary font-light text-md">
-            Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-          </p>
-          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
-            En savoir plus
-            <font-awesome-icon icon="fa-solid fa-arrow-right"
-              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-          </p>
-        </div>
-      </fwb-card>
-      <fwb-card img-alt="Desk" img-src="https://flowbite.com/docs/images/blog/image-1.jpg" variant="image"
-        class="min-h-[400px]">
-        <div class="p-5">
-          <h5 class="mb-2 text-xl font-bold text-secondary">
-            Noteworthy technology acquisitions 2021
-          </h5>
-          <p class="text-secondary font-light text-md">
-            Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-          </p>
-          <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
-            En savoir plus
-            <font-awesome-icon icon="fa-solid fa-arrow-right"
-              class="ms-1 group-hover:translate-x-[5px] transtion-all duration-300" />
-          </p>
-        </div>
-      </fwb-card>
-      <fwb-card img-alt="Desk" img-src="https://flowbite.com/docs/images/blog/image-1.jpg" variant="image"
-        class="min-h-[400px]">
-        <div class="p-5">
-          <h5 class="mb-2 text-xl font-bold text-secondary">
-            Noteworthy technology acquisitions 2021
-          </h5>
-          <p class="text-secondary font-light text-md">
-            Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+            {{ project.excerpt }}
           </p>
           <p @click="showModal = true" class="text-primary-light cursor-pointer hover:underline mt-3 text-sm group">
             En savoir plus
