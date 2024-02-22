@@ -1,24 +1,42 @@
 <script setup>
-import { ref, onMounted, onBeforeMount } from 'vue'
+import { ref, onMounted, watchEffect } from 'vue'
 import PresentationHome from '../components/PresentationHome.vue'
 import ProjectsHome from '../components/ProjectsHome.vue'
 import ContactHome from '../components/ContactHome.vue'
 import Buttons from '../components/Buttons/Buttons.vue'
+import { useQuery } from '@vue/apollo-composable'
+import gql from 'graphql-tag'
 
-const API_URL = `http://admin.ekherchi.fr/wp-json/wp/v2/projects?acf_format=standard&_fields=acf`
-let projects = null;
+// let projects = null;
+const projects = ref([]);
+const { result } = useQuery(gql`
+    query GetAllProjects {
+      projects {
+        nodes {
+          publicationsProjects {
+            project {
+              excerpt
+              explanation
+              fieldGroupName
+              link
+              skills
+              title
+              img {
+                      altText
+                      link
+                    }
+            }
+          }
+        }
+      }
+    }
+    `
+)
 
-const getData = () => {
-  fetch(API_URL, {
-    headers: { 'Content-type': 'application/json' },
-  }).then(res => res.json()).then((response) => {
-    // console.log(response)
-    projects = response;
-    console.log(projects[0])
-  }).catch((error) => {
-    console.log('Looks like there was a problem: \n', error);
-  });
-}
+watchEffect(() => {
+  projects.value = result.value?.projects?.nodes ?? [];
+  console.log(projects.value)
+})
 
 const colors = ['primary', 'secondary', 'accent', 'yellow-400', 'black', 'primary-light', 'secondary-light', 'accent-light'];
 const skills = ['Vue.Js', 'React.Js', 'Wordpress', 'Javascript', 'Front-End', 'Site Vitrine', 'E-Commerce', 'Application Web'];
@@ -37,11 +55,6 @@ const titleAnimations = () => {
 onMounted(() => {
   titleAnimations();
 });
-
-onBeforeMount(() => {
-  getData();
-
-})
 </script>
 
 <template>
@@ -60,7 +73,8 @@ onBeforeMount(() => {
       <div class="text-center px-4 lg:px-0 lg:w-[60%] xl:w-[50%] text-secondary flex flex-col gap-3">
         <p class="leading-7">
           Bienvenue sur mon site ! Je suis Emir Kherchi, développeur web freelance basé à Caen. Spécialisé dans les
-          technologies front-end telles que JavaScript, Vue.js, React et WordPress, je crée des sites web ergonomiques et
+          technologies front-end telles que JavaScript, Vue.js, React et WordPress, je crée des sites web ergonomiques
+          et
           esthétiques pour répondre à vos besoins.
         </p>
         <p class="text-primary font-semibold pt-6">
@@ -80,9 +94,12 @@ onBeforeMount(() => {
     <div class="parallax my-12"></div>
   </section>
   <section class="py-24" id="projects">
-    <ProjectsHome title="Projets"
+    <ProjectsHome v-if="projects.length" title="Projets"
       subtitle="Découvrez une variété de mes projets de développement web, mettant en œuvre différentes technologies et réalisés tant en collaboration avec des équipes que de manière individuelle.">
     </ProjectsHome>
+    <div v-else class="overflow-hidden mt-20 min-h-[500px] flex items-center justify-center">
+      <font-awesome-icon icon="fa-solid fa-spinner" spin class="text-5xl text-primary" />
+    </div>
   </section>
   <ContactHome>
   </ContactHome>
