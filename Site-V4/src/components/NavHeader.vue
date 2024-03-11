@@ -51,6 +51,7 @@
   </fwb-navbar>
 </template>
 <script setup>
+
 import { FwbNavbar, FwbNavbarCollapse, FwbNavbarLink } from 'flowbite-vue'
 import Buttons from './Buttons/Buttons.vue'
 import { useRoute } from 'vue-router'
