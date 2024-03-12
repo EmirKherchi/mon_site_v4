@@ -21,7 +21,7 @@
               </fwb-accordion-header>
               <fwb-accordion-content>
                 <div>
-                  <p v-html="props.project.explanation" class="mb-2 text-secondary-light font-light">
+                  <p v-html="props.project.explanation" class="mb-2 text-secondary-light font-light text-explanation">
                   </p>
                 </div>
               </fwb-accordion-content>
@@ -34,7 +34,8 @@
               </fwb-accordion-header>
               <fwb-accordion-content>
                 <div>
-                  <p v-html="props.project.skills" class="mb-2 text-secondary-light font-light dark:text-gray-400"></p>
+                  <p v-html="props.project.skills"
+                    class="mb-2 text-secondary-light font-light dark:text-gray-400 text-skills"></p>
                 </div>
               </fwb-accordion-content>
             </fwb-accordion-panel>
@@ -87,6 +88,29 @@ const props = defineProps({
   #modal>.overflow-y-auto>.max-w-6xl {
     display: flex;
     align-items: center;
+  }
+
+  .text-explanation>p {
+    margin: 10px 0;
+    line-height: normal;
+    font-weight: 400;
+    text-align: justify !important;
+  }
+
+  .text-skills>p {
+    margin: 10px 0;
+    line-height: normal;
+    font-weight: 400;
+    text-align: justify !important;
+  }
+
+  .text-skills ul {
+    list-style-position: inside;
+    list-style-type: circle;
+  }
+
+  .text-skills ul li {
+    margin-top: 5px;
   }
 }
 </style>

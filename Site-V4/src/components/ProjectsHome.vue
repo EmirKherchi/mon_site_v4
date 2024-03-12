@@ -42,7 +42,7 @@ const showProjectModal = (refProject) => {
       <fwb-card v-for="project, i in projects" :key="i"
         :img-alt="project.img?.altText || 'Projet emir kherchi developpeur web freelance Caen'"
         :img-src="project.img?.mediaItemUrl || 'https://flowbite.com/docs/images/blog/image-1.jpg'" variant="image"
-        class="min-h-[400px]">
+        class="h-[450px] projectCard">
         <div class="p-5">
           <h5 class="mb-2 text-xl font-bold text-secondary">
             {{ project.title }}
@@ -66,3 +66,12 @@ const showProjectModal = (refProject) => {
     </router-link> -->
   </div>
 </template>
+
+<style>
+.projectCard>img {
+  height: 35% !important;
+  width: 100% !important;
+  object-fit: cover;
+  border-bottom: 1px solid #ebebeb;
+}
+</style>
