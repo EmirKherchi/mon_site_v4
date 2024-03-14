@@ -34,8 +34,7 @@ const { result } = useQuery(gql`
 )
 
 watchEffect(() => {
-  projects.value = result.value?.projects?.nodes.map(project => project.publicationsProjects.project) ?? [];
-  console.log(projects.value)
+  projects.value = result.value?.projects?.nodes.map(project => project.publicationsProjects.project).reverse() ?? [];
 })
 
 const colors = ['primary', 'secondary', 'accent', 'yellow-400', 'black', 'primary-light', 'secondary-light', 'accent-light'];

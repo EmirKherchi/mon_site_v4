@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "vite build && node deploy",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
@@ -32,9 +33,10 @@
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/eslint-config-prettier": "^8.0.0",
     "autoprefixer": "^10.4.17",
-    "dotenv": "^16.4.1",
+    "dotenv": "^16.4.5",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "ftp-deploy": "^2.4.7",
     "postcss": "^8.4.33",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.4.1",
